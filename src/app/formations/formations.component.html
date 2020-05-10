@@ -1,0 +1,38 @@
+<div class="formation">
+    <div class="container">
+        <div class="my-4">
+            <div class="recherche shadow-lg text-left">
+                Rercher
+            </div>
+            <div  *ngIf="listFormations" class="mt-2 list-Formation shadow-lg ">
+                list-Formation
+                <table class="text-center table shadow-lg">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">#DI</th>
+                        <th scope="col">Formateur</th>
+                        <th scope="col">Formation</th>
+                        <th scope="col">Date de bébut</th>
+                        <th scope="col">Date de fin</th>
+                        <th scope="col">Opération</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let formation of listFormations._embedded.formations">
+                        <td>{{formation.id}}</td>
+                        <td>{{formation.formateur}}</td>
+                        <td>{{formation.title | uppercase}}</td>
+                        <td>{{formation.dateDeDebut}}</td>
+                        <td>{{formation.dateDeFin}}</td>
+                        <td>
+                          <button class="btn btn-outline-primary" (click)="voir_formation(formation.id)"><i class="fa fa-eye"></i></button> - 
+                          <button class="btn btn-outline-danger" (click)="delete_formation(formation.id)"><i class="fa fa-trash"></i></button> - 
+                          <button class="btn btn-outline-info" (click)="delete_formation(formation.id)"><i class="fa fa-edit"></i></button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</div>
