@@ -1,0 +1,62 @@
+<div class="ajoute-formation">
+    <div class="container">
+        <div class="form-formation shadow-lg">
+            <div class="titre shadow-lg">
+                Ajouter un nouvelle formation
+            </div>
+            <form #f="ngForm" (ngSubmit)="ajouteFormation(f.value)" class="shadow-lg">
+
+                <div class="form-group row">
+                    <label for="title" class="col-sm-2 col-form-label">Title :</label>
+                    <div class="col-sm-10">
+                        <input required id="title" name="title" minlength="3"  [ngModel]="formationsModule.title" placeholder="Titre de formation"
+                        type="text" class="form-control"  #title="ngModel" [class.is-invalid]="title.invalid && title.touched">
+                        <small *ngIf="title.invalid && title.touched" class="text-danger pull-right">le champ title est obligatoire</small>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="formateur" class="col-sm-2 col-form-label">Formateur :</label>
+                    <div class="col-sm-10">
+                        <input required type="text" name="formateur" class="form-control" [ngModel]="formationsModule.formateur" #formateur="ngModel" [class.is-invalid]="formateur.invalid && formateur.touched" placeholder="Formateur  de formation">
+                        <small *ngIf="formateur.invalid && formateur.touched" class="text-danger pull-right">le champ formateur est obligatoire</small>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="title" class="col-sm-2 col-form-label">Prix :</label>
+                    <div class="col-sm-10">
+                        <input required type="text" name="prix" class="form-control" [ngModel]="formationsModule.prix" #prix="ngModel" [class.is-invalid]="prix.invalid && prix.touched" placeholder="Prix de formation">
+                        <small *ngIf="prix.invalid && prix.touched" class="text-danger pull-right">le champ prix est obligatoire</small>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="description" class="col-sm-2 col-form-label">Dete Début  :</label>
+                    <div class="col-sm-10">
+                        <input required type="date" name="dateDeDebut" class="form-control" [ngModel]="formationsModule.dateDeDebut" #dateDeDebut="ngModel" [class.is-invalid]="dateDeDebut.invalid && dateDeDebut.touched">
+                        <small *ngIf="dateDeDebut.invalid && dateDeDebut.touched" class="text-danger pull-right">le champ date de dubét est obligatoire</small>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="title" class="col-sm-2 col-form-label">Date Fin :</label>
+                    <div class="col-sm-10">
+                        <input required  type="date" name="dateDeFin" class="form-control" [ngModel]="formationsModule.dateDeFin" #dateDeFin="ngModel" [class.is-invalid]="dateDeFin.invalid && dateDeFin.touched">
+                        <small *ngIf="dateDeFin.invalid && dateDeFin.touched" class="text-danger pull-right">le champ date de fin est obligatoire</small>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="description" class="col-sm-2 col-form-label">Description :</label>
+                    <div class="col-sm-10">
+                        <textarea required class="form-control" name="description" id="description" placeholder="Description de formation" [ngModel]="formationsModule.description" #description="ngModel" [class.is-invalid]="description.invalid && description.touched" placeholder="Description de formation"></textarea>
+                        <small *ngIf="description.invalid && description.touched" class="text-danger pull-right">le champ description est obligatoire</small>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="description" class="col-sm-2 col-form-label"> </label>
+                    <div class="col-sm-10">
+                        <button type="submit" [disabled]="f.invalid" class="bt btn-dark">Enregistrer</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

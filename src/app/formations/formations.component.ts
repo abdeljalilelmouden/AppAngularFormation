@@ -29,7 +29,6 @@ export class FormationsComponent implements OnInit {
     this.router.navigate(['voir-formation', id]);
   }
   public delete_formation(id: any){
-    
     let conf = confirm("vous avez vraiment supprimé ce produit");
     if(conf){
       this.formationsService.delateFormation(id)
@@ -38,8 +37,13 @@ export class FormationsComponent implements OnInit {
       },err=>{
         console.log(err);
       });
-
     }
+  }
+  public ajoute_formation(){
+    this.router.navigate(['ajoute-formation']);
+  }
+  public modifier_formation(id: any){
+    this.router.navigate(['modifier-formation', id]);
   }
 
 }

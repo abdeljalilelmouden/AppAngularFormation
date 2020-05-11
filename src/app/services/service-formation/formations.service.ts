@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FormationsService {
 
-  private host:string = "http://localhost:8443/";
+  public host:string = "http://localhost:8443/";
   constructor(private httpClient:HttpClient) { }
 
   public getAllFormation(){
@@ -16,5 +16,11 @@ export class FormationsService {
   }
   public delateFormation(id:number){
     return this.httpClient.delete(this.host+"formations/"+id);
+  }
+  public ajouteFormation(url, data){
+    return this.httpClient.post(url, data);
+  }
+  public UpdateFormation(id,data){
+    return this.httpClient.put(this.host+"formations/"+id,data);
   }
 }
